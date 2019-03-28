@@ -1,9 +1,9 @@
 using Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using Common.Conditions;
 using System.Collections.ObjectModel;
 
 namespace Pages{
@@ -20,10 +20,7 @@ namespace Pages{
 
         private IWebElement SearchButton{
             get {
-                return this.GetWebDriverWait().Until(d => {
-                    var ele = d.FindElement(By.Name("btnK"));
-                    return ele.Displayed ? ele : null;
-                });
+                return GetWebDriverWait().Until(d => ExpectedConditions.ElementIsEnabled(d, By.Name("btnK")));
             }
         }
 

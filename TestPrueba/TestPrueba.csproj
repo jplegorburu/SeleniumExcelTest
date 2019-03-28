@@ -118,6 +118,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ExpectedConditions.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\DemoGuru99Page.cs" />
     <Compile Include="Pages\GoogleHomePage.cs" />
@@ -127,7 +128,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Environment.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

@@ -19,7 +19,7 @@ namespace TestPrueba
     {
         IWebDriver driver;
         [SetUp]
-        public void startBrowser()
+        public void StartBrowser()
         {
             driver = new ChromeDriver("C:/Users/juan.legorburu/Downloads");
             // FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(@"C:/Users/juan.legorburu/Downloads");
@@ -45,7 +45,7 @@ namespace TestPrueba
         }
 
         [Test]
-        public void cssDemoandGoogle()
+        public void CssDemoandGoogle()
         {
             DemoGuru99Page demoGuru99 = new DemoGuru99Page(driver);
             demoGuru99.MaximizeWindow();
@@ -56,7 +56,7 @@ namespace TestPrueba
         }
 
         [Test]
-        public void googleSearch()
+        public void GoogleSearch()
         {
             GoogleHomePage gHome = new GoogleHomePage(driver);
             gHome.MaximizeWindow();
@@ -72,9 +72,9 @@ namespace TestPrueba
         [TestCase("Test003")]
         [TestCase("Test004")]
         [TestCase("Test005")]
-        public void googleSearchUsingData(string testName)
+        public void GoogleSearchUsingData(string testName)
         {
-            var userData = ExcelDataAccess.GetTestData(testName);   
+            var userData = ExcelDataAccess<UserData>.GetTestData(testName);   
             GoogleHomePage gHome = new GoogleHomePage(driver);
             gHome.MaximizeWindow();
             gHome.getSearchTextBox().SendKeys(userData.Sarasa);
@@ -91,7 +91,7 @@ namespace TestPrueba
         [TestCase("Test005")]
         public void GoogleSearchUsingData2(string testName)
         {
-            var userData = ExcelDataAccess.GetTestData(testName, "TestDataSheetPath2");
+            var userData = ExcelDataAccess<UserData>.GetTestData(testName, "TestDataSheetPath2");
             GoogleHomePage gHome = new GoogleHomePage(driver);
             gHome.MaximizeWindow();
             gHome.getSearchTextBox().SendKeys(userData.Sarasa);
@@ -102,7 +102,7 @@ namespace TestPrueba
         }
 
         [TearDown]
-        public void closeBrowser()
+        public void CloseBrowser()
         {
             driver.Close();
             driver.Quit();
